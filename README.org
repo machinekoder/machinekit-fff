@@ -5,3 +5,26 @@
   The primary goal of this repository is to work on a common base for
   Machinekit based FDM 3D printers. This repository should simplify
   the process of creating new device configurations.
+
+** Using this repository
+
+First start by forking this repository on GitHub. Then add it to your
+Machinekit configuration repository:
+#+BEGIN_SRC shell
+git remote add fdm-upstream https://github.com/strahlex/machinekit-fdm.git
+git subtree add --prefix fdm fdm-upstream master --squash
+#+END_SRC
+
+Make sure to check for upstream updates every once in a while.
+#+BEGIN_SRC shell
+git fetch fdm master
+git subtree pull --prefix fdm fdm-upstream master --squash
+#+END_SRC
+
+If you made some changes first fork the [[https://github.com/strahlex/machinekit-fdm][machinekit-fdm repository on
+GitHub]]. Then add the new repository to git and push the changes to a new branch.
+#+BEGIN_SRC shell
+git remote add fdm git@github.com:<username>/machinekit-fdm.git
+git subtree push --prefix fdm fdm <branch>
+#+END_SRC
+Now you can create a PR on GitHub to push the changes upstream.
